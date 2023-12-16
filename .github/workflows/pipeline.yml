@@ -7,7 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-test:
+  build-and-run-unit-test:
+    name: Build and run unit tests
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -18,8 +19,6 @@ jobs:
         cache: 'npm'
     - name: Install dependencies
       run: npm install
-    - name: Install playwright
-      run: npx playwright install
     - name: Statr unit test
       run: npm run test:unit
     - name: Display SoftUni username
